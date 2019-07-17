@@ -7,7 +7,7 @@ import sys
 import helpers
 
 #helpers is a template for internally imported modules
-from helpers import HelperSample
+from .helpers import HelperSample
 
 def main():
 	#Very Basic Program Testing HelperSample
