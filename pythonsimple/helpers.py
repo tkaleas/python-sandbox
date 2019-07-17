@@ -1,12 +1,15 @@
 class HelperSample:
 	
+	def __init__(self, input = 5):
+		self.data = input
+
 	@classmethod
 	def Helper1(cls):
-		print("Helper Test 1: Class %s" % cls)
-		
+		return ("Helper Test 1: Class %s" % cls)
+
 	@staticmethod
 	def Helper2():
-		print("Helper Test 2")
-		
+		return "Helper Test 2"
+	
 	def Helper3(self):
-		print("Helper Test 3")
+		return ("Helper Test: Data %d" % self.data)

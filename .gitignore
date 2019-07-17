@@ -47,8 +47,8 @@ Temporary Items
 .apdisk
 
 #Misc Files
-.pdb
+*.pdb
 
 #Python specific files
-.pyc
-.exe
+*.pyc
+*.exe

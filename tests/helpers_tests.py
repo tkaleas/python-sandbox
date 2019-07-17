@@ -1,33 +1,25 @@
 import unittest
 
-import pythonsimple
+import pythonsimple.helpers
 
-from pythonsimple import helpers
+from pythonsimple.helpers import HelperSample
+
+#from helpers import HelperSample
 
 class TestStringMethods(unittest.TestCase):
 
-	#SAMPLE TESTS (from python doc for unittest)
-  
-    def test_upper(self):
-        self.assertEqual('foo'.upper(), 'FOO')
-
-    def test_isupper(self):
-        self.assertTrue('FOO'.isupper())
-        self.assertFalse('Foo'.isupper())
-
-    def test_split(self):
-        s = 'hello world'
-        self.assertEqual(s.split(), ['hello', 'world'])
-        # check that s.split fails when the separator is not a string
-        with self.assertRaises(TypeError):
-            s.split(2)
-	
-	#TEST FUNCTION
-	def test_helpers(self):
-		HelperSample.Helper1()
-		HelperSample.Helper2()
-		hSample = HelperSample()
-		hSample.Helper3()
+    #TEST FUNCTION
+    def test_helper1(self):
+        self.assertEqual(HelperSample.Helper1(),"Helper Test 1: Class pythonsimple.helpers.HelperSample")
     
+    def test_helper2(self):
+        self.assertEqual(HelperSample.Helper2(),"Helper Test 2")
+    
+    def test_helper3(self):
+        hSample = HelperSample()
+        self.assertEqual(hSample.Helper3(),"Helper Test: Data 5")
+        hSample = HelperSample(100)
+        self.assertEqual(hSample.Helper3(),"Helper Test: Data 100")
+
 if __name__ == '__main__':
     unittest.main()

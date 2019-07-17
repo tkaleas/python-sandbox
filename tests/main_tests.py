@@ -6,9 +6,6 @@ from pythonsimple import pythonsimple
 
 class TestStringMethods(unittest.TestCase):
 
-  helpers.HelperSample.Helper1()
-  helpers.HelperSample.Helper2()
-  
 	#SAMPLE TESTS (from python doc for unittest)
     def test_upper(self):
         self.assertEqual('foo'.upper(), 'FOO')
@@ -23,9 +20,9 @@ class TestStringMethods(unittest.TestCase):
         # check that s.split fails when the separator is not a string
         with self.assertRaises(TypeError):
             s.split(2)
-			
-	def test_main(self):
-		pythonsimple.main()
-		
+            
+    def test_main(self):
+        pythonsimple.main()
+
 if __name__ == '__main__':
     unittest.main()

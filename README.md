@@ -2,6 +2,15 @@
 
 Repo contains solutions for data structures and problem solving in Python (3.7).
 
+## Run Unit Tests for Data Structures
+
+```
+rem Run Tests
+python -m unittest tests.main_tests
+python -m unittest tests.helpers_tests
+```
+
+## Zen of Python
 ```
 >> import this
 The Zen of Python, by Tim Peters
