@@ -44,13 +44,5 @@ class TestSortingMethods(unittest.TestCase):
     def test_mergesort(self):
         return
 
-class TestBinaryTrees(unittest.TestCase):
-
-    def setUp(self):
-        pass 
-
-    def tearDown(self):
-        pass
-
 if __name__ == '__main__':
     unittest.main()
