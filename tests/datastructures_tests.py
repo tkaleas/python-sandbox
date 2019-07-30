@@ -6,6 +6,7 @@ from datastructures.linkedlist import LinkedList,LinkedListElement
 from datastructures.stack import Stack
 from datastructures.queue import Queue
 from datastructures.binarytree import Node, BinaryTree, BST
+from datastructures.graph import Graph
 
 class TestLinkedListMethods(unittest.TestCase):
 
@@ -197,6 +198,37 @@ class TestBinarySearchTrees(unittest.TestCase):
         self.tree.insert(5)
         self.assertEqual(self.tree.print_tree(),"4-2-1-3-5")
         pass
+
+class TestGraphs(unittest.TestCase):
+    def setUp(self):
+        self.graph = Graph()
+        self.graph.insert_edge(100, 1, 2)
+        self.graph.insert_edge(101, 1, 3)
+        self.graph.insert_edge(102, 1, 4)
+        self.graph.insert_edge(103, 3, 4)
+    
+    def tearDown(self):
+        pass
+
+    def test_edge_list(self):
+        myList = self.graph.get_edge_list()
+        print(myList)
+        self.assertEqual(str(myList),
+        "[(100, 1, 2), (101, 1, 3), (102, 1, 4), (103, 3, 4)]")
+        self.graph.nodes.clear()
+        self.graph.edges.clear()
+
+    def test_adj_list(self):
+        self.assertEqual(str(self.graph.get_adjacency_list()),
+        "[None, [(2, 100), (3, 101), (4, 102)], None, [(4, 103)], None]")
+        self.graph.nodes.clear()
+        self.graph.edges.clear()
+    
+    def test_adj_matrix(self):
+        self.assertEqual(str(self.graph.get_adjacency_matrix()),
+        "[[0, 0, 0, 0, 0], [0, 0, 100, 101, 102], [0, 0, 0, 0, 0], [0, 0, 0, 0, 103], [0, 0, 0, 0, 0]]")
+        self.graph.nodes.clear()
+        self.graph.edges.clear()
 
 if __name__ == '__main__':
     unittest.main()
