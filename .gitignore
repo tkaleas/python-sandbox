@@ -52,3 +52,6 @@ Temporary Items
 #Python specific files
 *.pyc
 *.exe
+
+#VSCode
+.vscode/*
