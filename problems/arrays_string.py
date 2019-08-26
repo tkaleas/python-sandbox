@@ -160,4 +160,30 @@ print(checkEdit("pale","bale"))
 print(checkEdit("pale","bake"))
 
 def stringCompression(inputString):
-    pass
+    curChar = inputString[0]
+    curCount = 1
+    curIndex = 1
+    outputString = ""
+    
+    while curIndex < len(inputString):
+        if inputString[curIndex] == curChar:
+            curCount += 1
+        else:
+            outputString += curChar + str(curCount)
+            curCount = 1
+            curChar = inputString[curIndex]
+        curIndex += 1
+
+    outputString += curChar + str(curCount)
+
+    if len(outputString) < len(inputString):
+        return outputString
+    
+    return inputString
+
+print("Testing stringCompression")
+print(stringCompression("aabcccccaaa"))
+print(stringCompression("a"))
+print(stringCompression("abcde"))
+
+
