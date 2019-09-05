@@ -186,4 +186,68 @@ print(stringCompression("aabcccccaaa"))
 print(stringCompression("a"))
 print(stringCompression("abcde"))
 
+class TowersOfHanoi(object):
+    def __init__(self):
+        self.stack1 = []
+        self.stack2 = []
+        self.stack3 = []
 
+    def printTowers(self):        
+        print("---------")
+        print(self.stack1)
+        print(self.stack2)
+        print(self.stack3)
+        print("---------")
+
+    def resetTowers(self, n):
+        self.stack1 = []
+        for i in range(n):
+            self.stack1.insert(0,i+1)
+        self.stack2 = []
+        self.stack3 = []
+    
+    def moveLastToFirstStack(self,n):
+        if n == 1:
+            val = self.stack3.pop()
+            self.stack1.append(val)
+            self.printTowers()
+            return
+
+        self.moveLastToFirstStack(n-1)
+ 
+        val = self.stack3.pop()
+        self.stack2.append(val)
+        self.printTowers()
+
+        self.moveFirstToLastStack(n-1)
+        
+        val = self.stack2.pop()
+        self.stack1.append(val)
+        self.printTowers()
+        
+        self.moveLastToFirstStack(n-1)
+        
+    def moveFirstToLastStack(self,n):
+        if n == 1:
+            val = self.stack1.pop()
+            self.stack3.append(val)
+            self.printTowers()    
+            return
+
+        self.moveFirstToLastStack(n-1)
+        
+        val = self.stack1.pop()
+        self.stack2.append(val)
+        self.printTowers()
+
+        self.moveLastToFirstStack(n-1)
+        
+        val = self.stack2.pop()
+        self.stack3.append(val)
+        self.printTowers()
+
+        self.moveFirstToLastStack(n-1)
+        
+toh = TowersOfHanoi()
+toh.resetTowers(4)
+toh.moveFirstToLastStack(4)
