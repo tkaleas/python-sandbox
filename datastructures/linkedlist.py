@@ -6,7 +6,15 @@ class LinkedListElement(object):
 class LinkedList(object):
     def __init__(self, head=None):
         self.head = head
-        
+    
+    def toList(self):
+        outputList = []
+        current = self.head
+        while current:
+            outputList.append(current.value)
+            current = current.next
+        return outputList
+
     def append(self, new_element):
         """Append an Item to the End of the Linked List"""
         current = self.head
